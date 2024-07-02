@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8fc67f6c06.js" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- tailwind+daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .josefin{
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .bebas{
+            font-family: "Bebas Neue", sans-serif;
+        }
+    </style>
+    <title>Open Jokes</title>
+</head>
+<!-- random jokes generator with api -->
+<body>
+    <div class="container p-4 josefin">
+        <div class="card lg:card-side bg-base-100 ">
+            
+            <div class="card-body flex flex-col items-center justify-center">
+              <div class="border-4 shadow-md shadow-green-600 w-full rounded-lg border-green-700  bg-slate-300 text-gray-700 text-center p-4" id="jokes-container">
+                <i class="fa-regular fa-face-smile-wink text-red-600"></i>              </div>
+              <div class="justify-center">
+                <button class="btn bg-slate-300 text-gray-800" id="btn-jokes" onclick="generateJokes()">Get Jokes</button>
+              </div>
+            </div>
+            <figure><img src="image/simlee.jpg" class="rounded-xl  h-52 p-2 w-full" alt="Album"/></figure>
+        </div>
+    
+    <div class="space-y-4 bebas">
+        <h2 class="text-2xl text-center bg-gray-800 p-2  text-white">Select Tags:  </h2>
+        <div class="grid grid-cols-3 md:grid-cols-6 bg-slate-300 p-2">
+            
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox" class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this,'Programming' )" /> Programming </div>
+            <!-- <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox" class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this, 'Programming')" /> Programming</div> -->
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this, 'Miscellaneous')" /> Misc </div>
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this, 'Dark')" /> Dark </div>
+            <div class="flex flex-row items-center justify-center gap-1">  <input type="checkbox"  " class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this, 'Pun')" /> Pun </div>
+            <div class="flex flex-row items-center justify-center gap-1">  <input type="checkbox"  " class="checkbox checkbox-xs bg-red-700" onclick="AddTag(this, 'Spooky')" /> Spooky </div>
+        </div>
+
+        <h2 class="text-2xl text-center bg-gray-800 p-2  text-white">Select FLags to Blacklist: </h2>
+        <div class="grid grid-cols-3 md:grid-cols-6 bg-slate-300 p-2">
+            
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'nsfw' )" /> nsfw </div>
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'Religious' )" /> Religious </div>
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'Political' )" /> Political </div>
+            <div class="flex flex-row items-center justify-center gap-1"> <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'Racist' )" /> Racist </div>
+            <div class="flex flex-row items-center justify-center gap-1">  <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'Sexist' )" /> Sexist </div>
+            <div class="flex flex-row items-center justify-center gap-1">  <input type="checkbox"  " class="checkbox checkbox-xs bg-blue-700" onclick="blockTags(this,'Explicit' )" /> Explicit </div>
+        </div>
+
+        <h3 class="text-2xl text-center bg-gray-800  p-2 text-white">Search for a joke that contains this search string:</h3>
+        <div class="flex justify-center items-center bg-slate-300 p-2">
+            <div class="join">
+                <input id="input-field" class="input join-item rounded-xl" placeholder="Keyword " disabled/>
+                <button id="btn-add" onclick="addStringToLink()" class="btn join-item rounded-xl border-none outline-none px-8" disabled>Add</button>
+              </div>            
+        </div>
+    </div>
+</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
